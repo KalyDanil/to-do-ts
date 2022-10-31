@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { v4 } from 'uuid';
 import { ITask } from '../../types/toDo';
 import { listOptions } from '../../utils/constants';
 import BotLine from '../BotLine';
@@ -15,6 +14,7 @@ const ToDo: React.FC = () => {
 
   useEffect(() => {
     const activeTasks = tasks.filter((task) => !task.isCompleted);
+    setItemLeft(activeTasks.length)
     if (activeTasks.length === 0 && tasks.length !== 0) {
       setIsAllChecked(true);
       return;
@@ -28,9 +28,7 @@ const ToDo: React.FC = () => {
         tasks={tasks}
         setTasks={setTasks} 
         task={task}
-        itemLeft={itemLeft}
-        setItemLeft={setItemLeft}
-        key={v4()}
+        key={Math.random() + index}
         index={index}
       />
     );
@@ -38,7 +36,7 @@ const ToDo: React.FC = () => {
 
   const completedTasksList = tasks.map ((task, index) => {
     if (!task.isCompleted) {
-      return <div key={v4()}></div>;
+      return <div key={Math.random() + index}></div>;
     }
 
     return (
@@ -46,9 +44,7 @@ const ToDo: React.FC = () => {
         tasks={tasks}
         setTasks={setTasks} 
         task={task}
-        itemLeft={itemLeft}
-        setItemLeft={setItemLeft}
-        key={v4()}
+        key={Math.random() + index}
         index={index}
       />
     )
@@ -56,7 +52,7 @@ const ToDo: React.FC = () => {
 
   const activeTasksList = tasks.map((task, index) => {
     if (task.isCompleted) {
-      return <div key={v4()}></div>;
+      return <div key={Math.random() + index}></div>;
     }
 
     return (
@@ -64,9 +60,7 @@ const ToDo: React.FC = () => {
         tasks={tasks}
         setTasks={setTasks} 
         task={task}
-        itemLeft={itemLeft}
-        setItemLeft={setItemLeft}
-        key={v4()}
+        key={Math.random() + index}
         index={index}
       />
     );
@@ -78,8 +72,6 @@ const ToDo: React.FC = () => {
       <TopLine 
         setTasks={setTasks} 
         tasks={tasks}
-        itemLeft={itemLeft}
-        setItemLeft={setItemLeft}
         isAllChecked={isAllChecked}
       />
       {list === listOptions.all && allTasksList}

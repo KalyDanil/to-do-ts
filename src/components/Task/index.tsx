@@ -1,10 +1,11 @@
+import { Checkbox } from '@mui/material';
 import { ITaskProps } from '../../types/task';
 import { TaskStyle } from './Task.style';
 
 const Task: React.FC<ITaskProps> = (props) => {
-  const {task, tasks, setTasks, itemLeft, setItemLeft, index} = props;
+  const {task, tasks, setTasks, index} = props;
 
-  const onChange = () => {
+  const onCheckBoxClick = () => {
     const newTasks = tasks.slice(0);
 
     newTasks.forEach((task) => {
@@ -14,26 +15,16 @@ const Task: React.FC<ITaskProps> = (props) => {
     });
 
     setTasks(newTasks);
-
-    if (task.isCompleted) {
-      setItemLeft(itemLeft - 1);
-      return;
-    }
-
-    setItemLeft(itemLeft + 1);
   };
 
   const onDeleteClick = () => {
     const newTasks = tasks.filter((task) => tasks.indexOf(task) !== index);
     setTasks(newTasks);
-    if (!task.isCompleted) {
-      props.setItemLeft(props.itemLeft -1);
-    }
   };
   
   return (
-    <TaskStyle isCompleted={task.isCompleted}>
-      <input className="task__checkbox" type="checkbox" onChange={onChange} checked={task.isCompleted}/>
+    <TaskStyle isCompleted={task.isCompleted} role="task">
+      <Checkbox className="task__checkbox" onClick={onCheckBoxClick} checked={task.isCompleted} color="success"/>
       <span className="task__text">
         {task.text}
       </span>

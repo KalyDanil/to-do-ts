@@ -29,7 +29,7 @@ export const TopLineStyle = styled.form<{isAllChecked: boolean, tasksLength: num
   ::placeholder {
       font-style: italic;
       font-weight: 300;
-      color: #e6e6e6;
+      opacity: 0.4;
   }
   @media screen and (min-width: 320px) and (max-width:1280px){
       padding: 15px 0 15px 0;
