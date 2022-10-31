@@ -21,7 +21,7 @@ const TopLine: React.FC<ITopLineProps> = (props) => {
     setValue('');
   };
 
-  const onCheckAllClick = () => {
+  const onCompleteAllClick = () => {
     const newTasks = tasks.slice(0);
 
     newTasks.forEach((task) => {
@@ -34,7 +34,7 @@ const TopLine: React.FC<ITopLineProps> = (props) => {
   return (
     <TopLineStyle onSubmit={onSubmit} isAllChecked={isAllChecked} tasksLength={tasks.length}>
       {tasks.length !== 0 && (
-        <label className="topLine__CheckAll" id="checkAll" role="allCompleting" onClick={onCheckAllClick}>❯</label>
+        <label className="topLine__CheckAll" id="checkAll" role="allCompleting" onClick={onCompleteAllClick}>❯</label>
       )}
       <input className="topLine__input" role="toDoInput" type="text" placeholder="What needs to be done?" onChange={onChange} value={value} />
     </TopLineStyle>

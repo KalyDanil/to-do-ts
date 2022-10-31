@@ -26,7 +26,7 @@ const BotLine: React.FC<IBotLineProps> = (props) => {
           <input className="botLine__button" id={button.active} type="button" role="activeShow" value={listOptions.active} onClick={onShowClick} />
           <input className="botLine__button" id={button.completed} type="button" role="completedShow" value={listOptions.completed} onClick={onShowClick} />
       </div>
-      <input className="botLine__clearButton" id="buttonClear" type="button" role="completedClearing" value="Clear completed" onClick={onClearClick} />
+      <input className="botLine__button" id="buttonClear" type="button" role="completedClearing" value="Clear completed" onClick={onClearClick} />
     </BotLineStyle>
   );
 };

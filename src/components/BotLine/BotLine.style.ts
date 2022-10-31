@@ -6,9 +6,7 @@ export const BotLineStyle = styled.div<{selectedButton: string}>`
   justify-content: space-between;
   width: 100%;
   color: #777;
-  @media screen and (min-width: 320px) and (max-width:370px) {
-      height: 150px;
-  }
+ 
 ::after {
   content: "";
   position: absolute;
@@ -21,13 +19,6 @@ export const BotLineStyle = styled.div<{selectedButton: string}>`
               0 9px 1px -3px rgba(0, 0, 0, 0.2),
               0 16px 0 -6px #f6f6f6,
               0 17px 2px -6px rgba(0, 0, 0, 0.2);
-  @media screen and (min-width: 320px) and (max-width:370px) {
-      width: 100%;
-      height: 150px;
-  }
-  @media screen and (min-width: 370px) and (max-width:1280px) {
-      width: 100%; 
-  }
 }
 
 
@@ -43,18 +34,6 @@ export const BotLineStyle = styled.div<{selectedButton: string}>`
   background-color: #ffffff;
   color: #777;
   font-size: 14px;
-}
-
-.botLine__clearButton{
-  border: 1px solid;
-  border-color: #ffffff;
-  background-color: #ffffff;
-  
-  font-size: 14px;
-}
-
-.botLine__clearButton:hover {
-  border-color: rgba(175, 47, 47, 0.1);
 }
 
 .botLine__button:hover {

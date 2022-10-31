@@ -3,7 +3,7 @@ import ToDo from '../components/ToDo';
 
 afterEach(cleanup);
 
-it('adds new tasks', () => {
+test('adds new tasks', () => {
   const { getByRole, getAllByRole } = render(
     <ToDo />,
   );
@@ -17,7 +17,7 @@ it('adds new tasks', () => {
   expect(getAllByRole('task').length).toBe(2);
 });
 
-it('removes one task', () => {
+test('removes one task', () => {
   const { getByRole, getAllByRole, queryByText } = render(
     <ToDo />,
   );
@@ -34,7 +34,7 @@ it('removes one task', () => {
   expect(queryByText('test task 2')).toBeTruthy();
 });
 
-it('updates task count', () => {
+test('updates task count', () => {
   const { getByRole,getAllByRole } = render(
     <ToDo />,
   );
@@ -54,7 +54,7 @@ it('updates task count', () => {
   expect(getByRole('taskCount').textContent).toBe('1 items left');
 });
 
-it('completes one task', () => {
+test('completes one task', () => {
   const { getByRole, getAllByRole } = render(
     <ToDo />,
   );
@@ -72,7 +72,7 @@ it('completes one task', () => {
   expect(getByRole('taskCount').textContent).toBe('1 items left');
 });
 
-it('completes all tasks', () => {
+test('completes all tasks', () => {
   const { getByRole } = render(
     <ToDo />,
   );
@@ -90,7 +90,7 @@ it('completes all tasks', () => {
   expect(getByRole('taskCount').textContent).toBe('0 items left');
 });
 
-it('clears all completed tasks', () => {
+test('clears all completed tasks', () => {
   const { getByRole, getAllByRole, queryAllByRole } = render(
     <ToDo />,
   );
@@ -112,7 +112,7 @@ it('clears all completed tasks', () => {
   expect(queryAllByRole('task').length).toBe(1);
 });
 
-it('shows completed tasks', () => {
+test('shows completed tasks', () => {
   const { getByRole, getAllByRole, queryAllByRole } = render(
     <ToDo />,
   );
@@ -133,7 +133,7 @@ it('shows completed tasks', () => {
   expect(queryAllByRole('task').length).toBe(1);
 });
 
-it('shows active tasks', () => {
+test('shows active tasks', () => {
   const { getByRole, getAllByRole, queryAllByRole } = render(
     <ToDo />,
   );
@@ -154,7 +154,7 @@ it('shows active tasks', () => {
   expect(queryAllByRole('task').length).toBe(2);
 });
 
-it('shows all tasks', () => {
+test('shows all tasks', () => {
   const { getByRole, getAllByRole, queryAllByRole } = render(
     <ToDo />,
   );

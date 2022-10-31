@@ -14,10 +14,13 @@ const ToDo: React.FC = () => {
 
   useEffect(() => {
     const activeTasks = tasks.filter((task) => !task.isCompleted);
-    setItemLeft(activeTasks.length)
+    setItemLeft(activeTasks.length);
     if (activeTasks.length === 0 && tasks.length !== 0) {
       setIsAllChecked(true);
       return;
+    }
+    if (tasks.length === 0) {
+      setList(listOptions.all);
     }
     setIsAllChecked(false);
   }, [tasks]);
